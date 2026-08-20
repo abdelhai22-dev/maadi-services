@@ -1,282 +1,352 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
 
-<title>الوصول الفوري للمعلومة الخدمية</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+  <title>الوصول الفوري للمعلومة الخدمية</title>
 
-body{
-  font-family:"Tahoma","Arial",sans-serif;
-  background:#eef2f5;
-  color:#17212b;
-  min-height:100vh;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.app{
-  width:100%;
-  max-width:600px;
-  min-height:100vh;
-  margin:auto;
-  background:#fff;
-}
+    body {
+      font-family: "Tahoma", "Arial", sans-serif;
+      background: #f4f6f8;
+      color: #17212b;
+      min-height: 100vh;
+    }
 
-.header{
-  background:linear-gradient(145deg,#102a43,#174a70);
-  color:#fff;
-  padding:30px 20px 34px;
-  text-align:center;
-  border-radius:0 0 30px 30px;
-}
+    .app {
+      width: 100%;
+      max-width: 600px;
+      min-height: 100vh;
+      margin: auto;
+      background: #ffffff;
+    }
 
-.logos{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  margin-bottom:18px;
-}
+    /* الهيدر */
+    .header {
+      background: linear-gradient(145deg, #102a43, #174a70);
+      color: white;
+      padding: 30px 20px 34px;
+      text-align: center;
+      border-radius: 0 0 30px 30px;
+    }
 
-.logo{
-  width:62px;
-  height:62px;
-  background:#fff;
-  border-radius:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-  box-shadow:0 5px 18px rgba(0,0,0,.12);
-}
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
 
-.system-name{
-  font-size:15px;
-  opacity:.85;
-  margin-bottom:9px;
-}
+    .logo {
+      width: 62px;
+      height: 62px;
+      background: white;
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
 
-.title{
-  font-size:25px;
-  font-weight:800;
-  line-height:1.5;
-}
+    .system-name {
+      font-size: 15px;
+      opacity: .85;
+      margin-bottom: 10px;
+    }
 
-.subtitle{
-  font-size:15px;
-  opacity:.88;
-  margin-top:8px;
-}
+    .main-title {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
 
-.content{
-  padding:24px 16px 35px;
-}
+    .subtitle {
+      margin-top: 8px;
+      font-size: 15px;
+      opacity: .9;
+      line-height: 1.7;
+    }
 
-.section-title{
-  font-size:21px;
-  font-weight:800;
-  margin-bottom:7px;
-}
+    /* المحتوى */
+    .content {
+      padding: 24px 16px 35px;
+    }
 
-.section-subtitle{
-  color:#7a858e;
-  font-size:14px;
-  line-height:1.7;
-  margin-bottom:20px;
-}
+    .welcome {
+      text-align: center;
+      margin-bottom: 22px;
+    }
 
-.service{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  text-decoration:none;
-  color:#17212b;
-  background:#fff;
-  border:1px solid #e5e9ed;
-  border-radius:20px;
-  padding:17px;
-  margin-bottom:13px;
-  box-shadow:0 5px 16px rgba(0,0,0,.055);
-  transition:.2s;
-}
+    .welcome-title {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
 
-.service:active{
-  transform:scale(.98);
-}
+    .welcome-text {
+      font-size: 14px;
+      color: #68747e;
+      line-height: 1.8;
+    }
 
-.icon{
-  width:54px;
-  height:54px;
-  flex:0 0 54px;
-  border-radius:16px;
-  background:#e9f2f8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-}
+    /* كروت الخدمات */
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-.service-info{
-  flex:1;
-}
+    .service-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: #17212b;
+      background: #ffffff;
+      border: 1px solid #e2e7eb;
+      border-radius: 20px;
+      padding: 17px 16px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.055);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
 
-.service-title{
-  font-size:17px;
-  font-weight:800;
-  line-height:1.5;
-}
+    .service-card:active {
+      transform: scale(.985);
+    }
 
-.service-desc{
-  color:#7a858e;
-  font-size:13px;
-  margin-top:4px;
-  line-height:1.5;
-}
+    .service-icon {
+      flex: 0 0 54px;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: #e9f2f8;
+      color: #174a70;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+    }
 
-.arrow{
-  color:#174a70;
-  font-size:22px;
-  font-weight:bold;
-}
+    .service-info {
+      flex: 1;
+      min-width: 0;
+    }
 
-.note{
-  margin-top:20px;
-  padding:16px;
-  border-radius:17px;
-  background:#f8f1df;
-  border-right:5px solid #c99a3d;
-  font-size:14px;
-  line-height:1.8;
-}
+    .service-name {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.6;
+      margin-bottom: 3px;
+    }
 
-.note strong{
-  display:block;
-  margin-bottom:4px;
-}
+    .service-description {
+      font-size: 13px;
+      color: #7b858d;
+      line-height: 1.6;
+    }
 
-.footer{
-  text-align:center;
-  color:#8a949d;
-  font-size:12px;
-  padding:8px 20px 25px;
-}
+    .arrow {
+      flex: 0 0 auto;
+      color: #174a70;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-@media(min-width:700px){
-  body{
-    padding:30px;
-  }
+    /* رسالة النظام */
+    .info-box {
+      margin-top: 22px;
+      padding: 17px;
+      border-radius: 18px;
+      background: #f8f1df;
+      border-right: 5px solid #c99a3d;
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-  .app{
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 15px 50px rgba(0,0,0,.12);
-  }
-}
-</style>
+    .info-box strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 5px;
+      color: #5d491e;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8a949d;
+      font-size: 12px;
+      padding: 8px 20px 25px;
+      line-height: 1.7;
+    }
+
+    /* الكمبيوتر */
+    @media (min-width: 700px) {
+      body {
+        padding: 30px;
+      }
+
+      .app {
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 15px 50px rgba(0,0,0,.12);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <main class="app">
 
-<header class="header">
+  <!-- رأس الصفحة -->
+  <header class="header">
 
-  <div class="logos">
-    <div class="logo">🏛️</div>
-    <div class="logo">🏢</div>
-  </div>
+    <div class="logos">
+      <div class="logo">🏛️</div>
+      <div class="logo">📱</div>
+    </div>
 
-  <div class="system-name">
-    مبادرة الخدمات الرقمية
-  </div>
+    <div class="system-name">
+      الوصول الفوري للمعلومة الخدمية
+    </div>
 
-  <h1 class="title">
+    <h1 class="main-title">
+      المعلومة الخدمية بين يديك
+    </h1>
+
+    <div class="subtitle">
+      اختر الخدمة لمعرفة المستندات والإجراءات المطلوبة
+    </div>
+
+  </header>
+
+
+  <!-- المحتوى -->
+  <section class="content">
+
+    <div class="welcome">
+
+      <div class="welcome-title">
+        الخدمات المتاحة
+      </div>
+
+      <div class="welcome-text">
+        اضغط على الخدمة المطلوبة لعرض المعلومات كاملة
+      </div>
+
+    </div>
+
+
+    <!-- الخدمات -->
+    <div class="services">
+
+      <!-- اتحاد الشاغلين -->
+      <a href="union.html" class="service-card">
+
+        <div class="service-icon">
+          🏢
+        </div>
+
+        <div class="service-info">
+
+          <div class="service-name">
+            استخراج قيد اتحاد شاغلين
+          </div>
+
+          <div class="service-description">
+            المستندات المطلوبة والإجراءات الخاصة باستخراج القيد
+          </div>
+
+        </div>
+
+        <div class="arrow">
+          ←
+        </div>
+
+      </a>
+
+
+      <!-- ترخيص المحال -->
+      <a href="shops.html" class="service-card">
+
+        <div class="service-icon">
+          🏪
+        </div>
+
+        <div class="service-info">
+
+          <div class="service-name">
+            استخراج ترخيص محل
+          </div>
+
+          <div class="service-description">
+            طبقًا للقانون 154 لسنة 2019
+          </div>
+
+        </div>
+
+        <div class="arrow">
+          ←
+        </div>
+
+      </a>
+
+
+      <!-- انتظار المركبات -->
+      <a href="parking.html" class="service-card">
+
+        <div class="service-icon">
+          🚗
+        </div>
+
+        <div class="service-info">
+
+          <div class="service-name">
+            أماكن انتظار المركبات
+          </div>
+
+          <div class="service-description">
+            المستندات المطلوبة للتقديم على أماكن انتظار المركبات
+          </div>
+
+        </div>
+
+        <div class="arrow">
+          ←
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- تنبيه -->
+    <div class="info-box">
+
+      <strong>💡 معلومة خدمية</strong>
+
+      اختر الخدمة المطلوبة لعرض البيانات والمستندات المطلوبة
+      قبل التوجه لتقديم الطلب.
+
+    </div>
+
+  </section>
+
+
+  <footer class="footer">
     الوصول الفوري للمعلومة الخدمية
-  </h1>
-
-  <div class="subtitle">
-    اختر الخدمة للحصول على المستندات والإجراءات المطلوبة
-  </div>
-
-</header>
-
-<section class="content">
-
-  <h2 class="section-title">
-    الخدمات المتاحة
-  </h2>
-
-  <p class="section-subtitle">
-    اضغط على الخدمة المطلوبة لمعرفة المستندات والأوراق اللازمة للتقديم.
-  </p>
-
-  <a class="service" href="union.html">
-    <div class="icon">🏢</div>
-
-    <div class="service-info">
-      <div class="service-title">
-        استخراج قيد اتحاد شاغلين
-      </div>
-
-      <div class="service-desc">
-        المستندات المطلوبة لاستخراج القيد
-      </div>
-    </div>
-
-    <div class="arrow">‹</div>
-  </a>
-
-
-  <a class="service" href="shops.html">
-    <div class="icon">🏪</div>
-
-    <div class="service-info">
-      <div class="service-title">
-        ترخيص المحال
-      </div>
-
-      <div class="service-desc">
-        طبقًا للقانون 154 لسنة 2019
-      </div>
-    </div>
-
-    <div class="arrow">‹</div>
-  </a>
-
-
-  <a class="service" href="parking.html">
-    <div class="icon">🚗</div>
-
-    <div class="service-info">
-      <div class="service-title">
-        أماكن انتظار المركبات
-      </div>
-
-      <div class="service-desc">
-        شركات – مدارس – مستشفيات – بنوك – كافيهات – أفراد
-      </div>
-    </div>
-
-    <div class="arrow">‹</div>
-  </a>
-
-
-  <div class="note">
-    <strong>💡 معلومة خدمية</strong>
-    احصل على المعلومات المطلوبة قبل التوجه لتقديم الخدمة، لتوفير الوقت والجهد.
-  </div>
-
-</section>
-
-<footer class="footer">
-  الوصول الفوري للمعلومة الخدمية
-</footer>
+    <br>
+    خدمة رقمية لتيسير وصول المواطنين إلى المعلومات
+  </footer>
 
 </main>
 
