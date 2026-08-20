@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>الوصول الفوري للمعلومة الخدمية</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Tahoma","Arial",sans-serif;
+  background:#f4f6f8;
+  color:#17212b;
+  min-height:100vh;
+}
+
+.app{
+  width:100%;
+  max-width:600px;
+  min-height:100vh;
+  margin:auto;
+  background:#fff;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:linear-gradient(145deg,#102a43,#174a70);
+  color:white;
+  padding:30px 20px 32px;
+  text-align:center;
+  border-radius:0 0 28px 28px;
+}
+
+.logo{
+  width:68px;
+  height:68px;
+  background:white;
+  border-radius:18px;
+  margin:0 auto 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.system-name{
+  font-size:15px;
+  opacity:.85;
+  margin-bottom:10px;
+}
+
+.main-title{
+  font-size:25px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.main-subtitle{
+  margin-top:8px;
+  font-size:15px;
+  opacity:.9;
+}
+
+/* ================= HOME ================= */
+
+.home{
+  padding:24px 16px 35px;
+}
+
+.home-title{
+  font-size:21px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.service-card{
+  background:#fff;
+  border:1px solid #e3e8ed;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.service-card:active{
+  transform:scale(.98);
+}
+
+.service-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:#e9f2f8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.service-name{
+  font-size:18px;
+  font-weight:800;
+  line-height:1.6;
+  color:#102a43;
+}
+
+.service-description{
+  margin-top:6px;
+  color:#6c7780;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.arrow{
+  margin-top:12px;
+  color:#174a70;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* ================= SERVICE PAGE ================= */
+
+.service-page{
+  display:none;
+  padding:22px 16px 35px;
+}
+
+.service-page.active{
+  display:block;
+}
+
+.service-header{
+  margin-bottom:20px;
+}
+
+.service-page-title{
+  font-size:23px;
+  font-weight:800;
+  line-height:1.55;
+  color:#102a43;
+}
+
+.service-page-subtitle{
+  margin-top:7px;
+  color:#687680;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* ================= SECTION ================= */
+
+.section-title{
+  font-size:20px;
+  font-weight:800;
+  margin:22px 0 16px;
+}
+
+/* ================= DOCUMENT ================= */
+
+.document{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  background:#fff;
+  border:1px solid #e5e9ed;
+  border-radius:18px;
+  padding:16px 14px;
+  margin-bottom:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.045);
+}
+
+.number{
+  flex:0 0 38px;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:#e9f2f8;
+  color:#174a70;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  font-weight:800;
+}
+
+.document-text{
+  font-size:15px;
+  line-height:1.9;
+  font-weight:600;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-box{
+  background:#eef5f9;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:20px;
+}
+
+.category-title{
+  font-size:15px;
+  font-weight:800;
+  color:#174a70;
+  margin-bottom:9px;
+}
+
+.category-text{
+  font-size:14px;
+  line-height:1.9;
+  font-weight:600;
+}
+
+/* ================= LOCATION ================= */
+
+.location-box{
+  margin-top:22px;
+  padding:18px;
+  border-radius:19px;
+  background:#f8f1df;
+  border-right:5px solid #c99a3d;
+}
+
+.location-title{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:8px;
+  color:#5c481e;
+}
+
+.location-text{
+  font-size:15px;
+  line-height:1.9;
+  font-weight:600;
+}
+
+.location-office{
+  margin-top:6px;
+  color:#174a70;
+  font-weight:800;
+}
+
+/* ================= NOTE ================= */
+
+.note{
+  margin-top:20px;
+  padding:16px;
+  border-radius:17px;
+  background:#f5f7f8;
+  border-right:5px solid #174a70;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.note strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:15px;
+}
+
+/* ================= BUTTON ================= */
+
+.back-button{
+  display:block;
+  width:100%;
+  border:none;
+  background:#102a43;
+  color:white;
+  padding:17px;
+  border-radius:17px;
+  font-size:17px;
+  font-weight:800;
+  margin-top:22px;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  color:#8a949d;
+  font-size:12px;
+  padding:8px 20px 25px;
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:700px){
+
+  body{
+    padding:30px;
+  }
+
+  .app{
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 15px 50px rgba(0,0,0,.12);
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="app">
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <div class="logo">🏛️</div>
+
+  <div class="system-name">
+    الوصول الفوري للمعلومة الخدمية
+  </div>
+
+  <h1 class="main-title">
+    دليل الخدمات
+  </h1>
+
+  <div class="main-subtitle">
+    المعلومة الخدمية في متناول يدك
+  </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="home">
+
+  <h2 class="home-title">
+    الخدمات المتاحة
+  </h2>
+
+
+  <!-- الخدمة الأولى -->
+
+  <div class="service-card" onclick="openService('union')">
+
+    <div class="service-icon">🏢</div>
+
+    <div class="service-name">
+      استخراج قيد اتحاد شاغلين
+    </div>
+
+    <div class="service-description">
+      تعرف على المستندات المطلوبة للتقديم.
+    </div>
+
+    <div class="arrow">
+      عرض التفاصيل ←
+    </div>
+
+  </div>
+
+
+  <!-- الخدمة الثانية -->
+
+  <div class="service-card" onclick="openService('shops')">
+
+    <div class="service-icon">🏪</div>
+
+    <div class="service-name">
+      استخراج ترخيص محال
+    </div>
+
+    <div class="service-description">
+      طبقًا للقانون 154 لسنة 2019.
+    </div>
+
+    <div class="arrow">
+      عرض التفاصيل ←
+    </div>
+
+  </div>
+
+
+  <!-- الخدمة الثالثة -->
+
+  <div class="service-card" onclick="openService('parking')">
+
+    <div class="service-icon">🅿️</div>
+
+    <div class="service-name">
+      التقديم على أماكن انتظار المركبات
+    </div>
+
+    <div class="service-description">
+      شركات – مدارس – مستشفيات – بنوك – كافيهات – أفراد.
+    </div>
+
+    <div class="arrow">
+      عرض التفاصيل ←
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SERVICE 1 -->
+<!-- ===================================================== -->
+
+<section id="union" class="service-page">
+
+  <div class="service-header">
+
+    <h2 class="service-page-title">
+      استخراج قيد اتحاد شاغلين
+    </h2>
+
+    <div class="service-page-subtitle">
+      المستندات المطلوبة
+    </div>
+
+  </div>
+
+
+  <h3 class="section-title">
+    📄 المستندات المطلوبة
+  </h3>
+
+
+  <div class="document">
+    <div class="number">01</div>
+    <div class="document-text">
+      عقد ملكية أو إيجار الشقة لرئيس الاتحاد وأمين الصندوق، مع صورة الرقم القومي.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">02</div>
+    <div class="document-text">
+      موافقة 60% من عدد السكان، مع صور الرقم القومي لكل منهم.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">03</div>
+    <div class="document-text">
+      كشف بموافقة 25% من السكان على تأسيس اتحاد شاغلين.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">04</div>
+    <div class="document-text">
+      محضر اجتماع جمعية عمومية تأسيسية.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">05</div>
+    <div class="document-text">
+      صورة من الدعوة المعلنة للاتحاد.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">06</div>
+    <div class="document-text">
+      دعوة جمعية عمومية قبل الاجتماع بـ15 يوم، وتوقيع جميع السكان عليها، وإرسال الدعوة بالبريد المصري المسجل بعلم الوصول.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">07</div>
+    <div class="document-text">
+      صحيفة الحالة الجنائية حديثة لكل أعضاء الاتحاد (رئيس الاتحاد – نائب رئيس الاتحاد – أمين الصندوق – العضو).
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">08</div>
+    <div class="document-text">
+      صورة الرخصة أو كشف مشتملات للعقار.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">09</div>
+    <div class="document-text">
+      كشف بفرز الوحدات، موضحًا رقم الدور ورقم الشقة واسم صاحب الشقة.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">10</div>
+    <div class="document-text">
+      اللائحة التأسيسية للاتحاد (من الحي).
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">11</div>
+    <div class="document-text">
+      إقرار بصحة الأوراق (من الحي).
+    </div>
+  </div>
+
+
+  <div class="note">
+    <strong>⚠️ تنبيه</strong>
+    يرجى التأكد من استيفاء جميع المستندات المطلوبة قبل التوجه لتقديم الطلب.
+  </div>
+
+
+  <button class="back-button" onclick="goHome()">
+    ↩ العودة للخدمات
+  </button>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SERVICE 2 -->
+<!-- ===================================================== -->
+
+<section id="shops" class="service-page">
+
+  <div class="service-header">
+
+    <h2 class="service-page-title">
+      استخراج ترخيص محال
+    </h2>
+
+    <div class="service-page-subtitle">
+      طبقًا للقانون 154 لسنة 2019
+    </div>
+
+  </div>
+
+
+  <h3 class="section-title">
+    📄 المستندات المطلوبة
+  </h3>
+
+
+  <div class="document">
+    <div class="number">01</div>
+    <div class="document-text">
+      صورة بطاقة الرقم القومي أو صورة جواز السفر بعد الاطلاع على الأصل.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">02</div>
+    <div class="document-text">
+      صورة التوكيل الرسمي في حالة عدم حضور صاحب الرخصة بنفسه.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">03</div>
+    <div class="document-text">
+      صورة من عقد الملكية أو صورة من عقد الإيجار بعد الاطلاع على الأصل، على أن يكون عقد الإيجار مثبت التاريخ وساري المفعول لمدة لا تقل عن سنة وموضحًا به نوع النشاط المطلوب ترخيصه.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">04</div>
+    <div class="document-text">
+      صورة من رخصة البناء بعد الاطلاع على الأصل إن وجدت أو ما يفيد التقدم بطلب لتقنين وضع العقار.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">05</div>
+    <div class="document-text">
+      إفادة من إدارة التنظيم بموقف المحل العام في حالة وجود رخصة بناء أو تقنين وضع العقار.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">06</div>
+    <div class="document-text">
+      تقرير هندسي معتمد يثبت السلامة الإنشائية للعقار في حالة عدم وجود رخصة بناء أو تقنين وضع العقار أو مخالف لشروط الترخيص.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">07</div>
+    <div class="document-text">
+      رسم توضيحي (كروكي) موضح به موقع المحل ومشتمل على اسم الحي أو الجهاز أو المنطقة واسم الشارع ورقم العقار إن وجد.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">08</div>
+    <div class="document-text">
+      صورة من البطاقة الضريبية بعد الاطلاع على الأصل.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">09</div>
+    <div class="document-text">
+      مستخرج رسمي من السجل التجاري.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">10</div>
+    <div class="document-text">
+      شهادات صحية لجميع العاملين بالمحلات المختصة بتقديم وتحضير وتداول الأغذية والمشروبات.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">11</div>
+    <div class="document-text">
+      الموافقة الصادرة من وزارة القوى العاملة.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">12</div>
+    <div class="document-text">
+      شهادة تصرفات عقارية أو كشف رسمي مستخرج من سجلات مصلحة الضرائب العقارية.
+    </div>
+  </div>
+
+
+  <div class="note">
+    <strong>⚠️ تنبيه</strong>
+    يرجى التأكد من استيفاء جميع المستندات المطلوبة قبل التوجه لتقديم الطلب.
+  </div>
+
+
+  <button class="back-button" onclick="goHome()">
+    ↩ العودة للخدمات
+  </button>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SERVICE 3 -->
+<!-- ===================================================== -->
+
+<section id="parking" class="service-page">
+
+  <div class="service-header">
+
+    <h2 class="service-page-title">
+      التقديم على أماكن انتظار المركبات
+    </h2>
+
+    <div class="service-page-subtitle">
+      شركات / مدارس / مستشفيات / بنوك / كافيهات / أفراد
+    </div>
+
+  </div>
+
+
+  <!-- الفئات -->
+
+  <div class="category-box">
+
+    <div class="category-title">
+      👥 الفئات المستفيدة
+    </div>
+
+    <div class="category-text">
+      شركات – مدارس – مستشفيات – بنوك – كافيهات – أفراد
+    </div>
+
+  </div>
+
+
+  <h3 class="section-title">
+    📄 المستندات المطلوبة
+  </h3>
+
+
+  <div class="document">
+    <div class="number">01</div>
+    <div class="document-text">
+      السجل التجاري.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">02</div>
+    <div class="document-text">
+      البطاقة الضريبية.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">03</div>
+    <div class="document-text">
+      صورة بطاقة الرقم القومي.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">04</div>
+    <div class="document-text">
+      الشركات تقدم تفويض أو توكيل لمقدم الطلب.
+    </div>
+  </div>
+
+  <div class="document">
+    <div class="number">05</div>
+    <div class="document-text">
+      الأفراد يقدم الطلب مأمور اتحاد العقار الصادر له شهادة من الحي بذلك.
+    </div>
+  </div>
+
+
+  <!-- مكان التقديم -->
+
+  <div class="location-box">
+
+    <div class="location-title">
+      📍 مكان تقديم الأوراق
+    </div>
+
+    <div class="location-text">
+      تقدم الأوراق بديوان عام محافظة القاهرة.
+    </div>
+
+    <div class="location-office">
+      إدارة تنظيم انتظار المركبات
+    </div>
+
+  </div>
+
+
+  <div class="note">
+    <strong>⚠️ تنبيه</strong>
+    يرجى التأكد من استيفاء جميع المستندات المطلوبة قبل التوجه لتقديم الطلب.
+  </div>
+
+
+  <button class="back-button" onclick="goHome()">
+    ↩ العودة للخدمات
+  </button>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+  الوصول الفوري للمعلومة الخدمية
+</footer>
+
+</main>
+
+
+<script>
+
+function openService(serviceId){
+
+  document.getElementById("home").style.display="none";
+
+  const pages=document.querySelectorAll(".service-page");
+
+  pages.forEach(function(page){
+    page.classList.remove("active");
+  });
+
+  document.getElementById(serviceId).classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+function goHome(){
+
+  const pages=document.querySelectorAll(".service-page");
+
+  pages.forEach(function(page){
+    page.classList.remove("active");
+  });
+
+  document.getElementById("home").style.display="block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+</script>
+
+</body>
+</html>
