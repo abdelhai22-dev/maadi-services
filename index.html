@@ -20,7 +20,7 @@
     --gold:#c9a24a;
     --gold2:#e4c979;
     --bg:#f3f6f8;
-    --white:#ffffff;
+    --white:#fff;
     --text:#17212b;
     --muted:#687783;
     --border:#e1e7eb;
@@ -45,9 +45,7 @@ body{
     background:#fff;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 .header{
     position:relative;
@@ -55,7 +53,7 @@ body{
     background:
         radial-gradient(circle at 15% 20%,rgba(255,255,255,.10),transparent 28%),
         linear-gradient(145deg,#0c2439,#174a70);
-    color:white;
+    color:#fff;
     padding:28px 20px 34px;
     text-align:center;
     border-radius:0 0 32px 32px;
@@ -96,7 +94,6 @@ body{
 
 .district{
     font-size:14px;
-    letter-spacing:.2px;
     opacity:.82;
     margin-bottom:6px;
 }
@@ -151,9 +148,27 @@ body{
     color:#dce9f1;
 }
 
-/* =========================
-   CONTENT
-========================= */
+/* تعريف صاحب الابتكار */
+
+.innovator{
+    margin:17px auto 0;
+    padding:11px 14px;
+    max-width:500px;
+    border:1px solid rgba(228,201,121,.35);
+    border-radius:14px;
+    background:rgba(255,255,255,.07);
+    font-size:11px;
+    line-height:1.9;
+    color:#e6eef3;
+}
+
+.innovator strong{
+    display:block;
+    color:var(--gold2);
+    font-size:13px;
+}
+
+/* ================= CONTENT ================= */
 
 .content{
     padding:23px 16px 30px;
@@ -176,9 +191,7 @@ body{
     line-height:1.8;
 }
 
-/* =========================
-   SEARCH
-========================= */
+/* ================= SEARCH ================= */
 
 .search-box{
     position:sticky;
@@ -217,9 +230,7 @@ body{
     color:#99a4ab;
 }
 
-/* =========================
-   SERVICE CARDS
-========================= */
+/* ================= SERVICES ================= */
 
 .services{
     display:flex;
@@ -232,10 +243,10 @@ body{
     border:1px solid var(--border);
     border-radius:19px;
     background:#fff;
-    padding:15px;
+    padding:13px;
     display:flex;
     align-items:center;
-    gap:13px;
+    gap:12px;
     cursor:pointer;
     text-align:right;
     transition:.16s ease;
@@ -246,18 +257,17 @@ body{
     transform:scale(.985);
 }
 
-.service-number{
-    flex:0 0 42px;
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    background:#edf4f8;
-    color:var(--navy2);
+.service-icon{
+    flex:0 0 46px;
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:linear-gradient(145deg,#edf4f8,#f7fafc);
+    border:1px solid #dce7ed;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:14px;
-    font-weight:900;
+    font-size:23px;
 }
 
 .service-info{
@@ -277,14 +287,18 @@ body{
     margin-top:3px;
 }
 
+.service-number{
+    font-size:10px;
+    color:#a1adb5;
+    margin-top:2px;
+}
+
 .arrow{
     color:var(--navy2);
     font-size:21px;
 }
 
-/* =========================
-   DETAIL
-========================= */
+/* ================= DETAIL ================= */
 
 .detail{
     display:none;
@@ -384,9 +398,7 @@ body{
     color:#34424c;
 }
 
-/* =========================
-   INFO
-========================= */
+/* ================= INFO ================= */
 
 .info-box{
     margin-top:18px;
@@ -404,9 +416,7 @@ body{
     margin-bottom:4px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 .footer{
     margin-top:20px;
@@ -438,9 +448,7 @@ body{
     color:var(--navy2);
 }
 
-/* =========================
-   NO RESULTS
-========================= */
+/* ================= NO RESULTS ================= */
 
 .no-results{
     display:none;
@@ -471,138 +479,145 @@ body{
 
 <header class="header">
 
-    <div class="brand">
+<div class="brand">
 
-        <div class="brand-mark">
-            <span>🏛️</span>
-        </div>
+<div class="brand-mark">
+<span>🏛️</span>
+</div>
 
-        <div class="district">
-            حي المعادي
-        </div>
+<div class="district">
+حي المعادي
+</div>
 
-        <div class="leader-label">
-            تحت قيادة
-        </div>
+<div class="leader-label">
+تحت قيادة
+</div>
 
-        <div class="leader">
-            السيد الدكتور/ محمد عثمان الإمام
-        </div>
+<div class="leader">
+السيد الدكتور/ محمد عثمان الإمام
+</div>
 
-        <div class="position">
-            وكيل الوزارة – رئيس حي المعادي
-        </div>
+<div class="position">
+وكيل الوزارة – رئيس حي المعادي
+</div>
 
-        <div class="divider"></div>
+<div class="divider"></div>
 
-        <div class="system-name">
-            منظومة الوصول الفوري للمعلومة الخدمية
-        </div>
+<div class="system-name">
+منظومة الوصول الفوري للمعلومة الخدمية
+</div>
 
-        <h1 class="main-title">
-            المعلومة الخدمية بين يديك
-        </h1>
+<h1 class="main-title">
+المعلومة الخدمية بين يديك
+</h1>
 
-        <div class="subtitle">
-            دليل المستندات المطلوبة للخدمات
-        </div>
+<div class="subtitle">
+دليل المستندات المطلوبة للخدمات
+</div>
 
-    </div>
+<div class="innovator">
+<strong>وحدة الابتكار وتطوير الحلول</strong>
+مركز المعلومات ودعم اتخاذ القرار – حي المعادي
+<br>
+فكرة وتصميم وتنفيذ م/ أحمد عبد الحي
+</div>
+
+</div>
 
 </header>
 
-
 <section class="content">
 
-    <div id="listView">
+<div id="listView">
 
-        <div class="intro">
+<div class="intro">
 
-            <div class="intro-title">
-                الخدمات المتاحة
-            </div>
+<div class="intro-title">
+الخدمات المتاحة
+</div>
 
-            <div class="intro-text">
-                اختر الخدمة المطلوبة لمعرفة المستندات الواجب تقديمها
-            </div>
+<div class="intro-text">
+اختر الخدمة المطلوبة لمعرفة المستندات الواجب تقديمها
+</div>
 
-        </div>
+</div>
 
+<div class="search-box">
 
-        <div class="search-box">
+<div class="search-inner">
 
-            <div class="search-inner">
+<div class="search-icon">⌕</div>
 
-                <div class="search-icon">⌕</div>
+<input
+id="searchInput"
+class="search-input"
+type="search"
+placeholder="ابحث باسم الخدمة..."
+autocomplete="off">
 
-                <input
-                    id="searchInput"
-                    class="search-input"
-                    type="search"
-                    placeholder="ابحث باسم الخدمة..."
-                    autocomplete="off"
-                >
+</div>
 
-            </div>
+</div>
 
-        </div>
+<div id="services" class="services"></div>
 
+<div id="noResults" class="no-results">
+لا توجد خدمة مطابقة لبحثك.
+</div>
 
-        <div id="services" class="services"></div>
+<div class="info-box">
 
-        <div id="noResults" class="no-results">
-            لا توجد خدمة مطابقة لبحثك.
-        </div>
+<div class="info-title">
+💡 معلومة خدمية
+</div>
 
+اعرف المستندات المطلوبة قبل التوجه لتقديم الطلب.
 
-        <div class="info-box">
+</div>
 
-            <div class="info-title">
-                💡 معلومة خدمية
-            </div>
+</div>
 
-            اعرف المستندات المطلوبة قبل التوجه لتقديم الطلب.
+<div id="detailView" class="detail">
 
-        </div>
+<button class="back" onclick="goBack()">
+→ العودة إلى الخدمات
+</button>
 
-    </div>
+<div id="detailContent"></div>
 
+</div>
 
-    <div id="detailView" class="detail">
+<footer class="footer">
 
-        <button class="back" onclick="goBack()">
-            → العودة إلى الخدمات
-        </button>
+<div class="footer-unit">
+وحدة الابتكار وتطوير الحلول
+</div>
 
-        <div id="detailContent"></div>
+<div class="footer-center">
+مركز المعلومات ودعم اتخاذ القرار – حي المعادي
+</div>
 
-    </div>
+<div class="footer-credit">
+فكرة وتصميم وتنفيذ
+<br>
+<strong>م/ أحمد عبد الحي</strong>
+</div>
 
-
-    <footer class="footer">
-
-        <div class="footer-unit">
-            وحدة الابتكار وتطوير الحلول
-        </div>
-
-        <div class="footer-center">
-            مركز المعلومات ودعم اتخاذ القرار – حي المعادي
-        </div>
-
-        <div class="footer-credit">
-            فكرة وتصميم وتنفيذ
-            <br>
-            <strong>م/ أحمد عبد الحي</strong>
-        </div>
-
-    </footer>
+</footer>
 
 </section>
 
 </main>
 
-
 <script>
+
+const icons = [
+"📡","🏗️","🏪","📍","🪧","📐","🏚️","⛏️","📍","🚧",
+"📋","🛠️","✅","📍","🏪","🏗️","🏢","🏠","📦","🏪",
+"💧","🛗","📍","📢","🥤","⚡","🛗","🏗️","📢","🌸",
+"🍎","🪟","🚚","🍔","🔄","💰","👥","🔎","📄","🏛️",
+"🅿️","⚖️"
+];
 
 const services = [
 
@@ -1083,41 +1098,24 @@ docs:[
 
 ];
 
+/* ================= RENDER ================= */
 
-/* =========================
-   RENDER SERVICES
-========================= */
-
-const servicesContainer =
-    document.getElementById("services");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const noResults =
-    document.getElementById("noResults");
-
-const listView =
-    document.getElementById("listView");
-
-const detailView =
-    document.getElementById("detailView");
-
-const detailContent =
-    document.getElementById("detailContent");
-
+const servicesContainer=document.getElementById("services");
+const searchInput=document.getElementById("searchInput");
+const noResults=document.getElementById("noResults");
+const listView=document.getElementById("listView");
+const detailView=document.getElementById("detailView");
+const detailContent=document.getElementById("detailContent");
 
 function renderServices(list){
 
     servicesContainer.innerHTML="";
 
-    noResults.style.display =
-        list.length ? "none" : "block";
+    noResults.style.display=list.length?"none":"block";
 
     list.forEach(service=>{
 
-        const card =
-            document.createElement("div");
+        const card=document.createElement("div");
 
         card.className="service-card";
 
@@ -1125,10 +1123,12 @@ function renderServices(list){
             openService(service.id);
         };
 
+        const icon=icons[service.id-1] || "📋";
+
         card.innerHTML=`
 
-            <div class="service-number">
-                ${service.id}
+            <div class="service-icon">
+                ${icon}
             </div>
 
             <div class="service-info">
@@ -1141,55 +1141,54 @@ function renderServices(list){
                     المستندات المطلوبة
                 </div>
 
+                <div class="service-number">
+                    خدمة رقم ${service.id}
+                </div>
+
             </div>
 
             <div class="arrow">
                 ←
             </div>
+
         `;
 
         servicesContainer.appendChild(card);
-
     });
-
 }
 
-
-/* =========================
-   OPEN SERVICE
-========================= */
+/* ================= OPEN SERVICE ================= */
 
 function openService(id){
 
-    const service =
-        services.find(
-            item=>item.id===id
-        );
+    const service=services.find(
+        item=>item.id===id
+    );
 
     if(!service) return;
 
     let docsHTML="";
 
-    service.docs.forEach(
-        (doc,index)=>{
+    service.docs.forEach((doc,index)=>{
 
-            docsHTML += `
+        docsHTML+=`
 
-                <div class="document">
+            <div class="document">
 
-                    <div class="doc-num">
-                        ${index+1}
-                    </div>
-
-                    <div class="doc-text">
-                        ${escapeHTML(doc)}
-                    </div>
-
+                <div class="doc-num">
+                    ${index+1}
                 </div>
 
-            `;
-        }
-    );
+                <div class="doc-text">
+                    ${escapeHTML(doc)}
+                </div>
+
+            </div>
+
+        `;
+    });
+
+    const icon=icons[service.id-1] || "📋";
 
     detailContent.innerHTML=`
 
@@ -1198,7 +1197,7 @@ function openService(id){
             <div class="detail-head">
 
                 <div class="detail-number">
-                    الخدمة رقم ${service.id}
+                    ${icon} &nbsp; الخدمة رقم ${service.id}
                 </div>
 
                 <div class="detail-title">
@@ -1230,19 +1229,21 @@ function openService(id){
         behavior:"smooth"
     });
 
+    /*
+      مهم جداً:
+      نحتفظ بنفس نظام الروابط القديم
+      حتى تعمل أكواد QR التي تحتوي
+      #service-1 ... #service-42
+    */
+
     history.replaceState(
         null,
         "",
-        location.pathname +
-        "#service-" +
-        service.id
+        location.pathname+"#service-"+service.id
     );
 }
 
-
-/* =========================
-   BACK
-========================= */
+/* ================= BACK ================= */
 
 function goBack(){
 
@@ -1256,73 +1257,57 @@ function goBack(){
         location.pathname
     );
 
+    renderServices(services);
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
 }
 
-
-/* =========================
-   SEARCH
-========================= */
+/* ================= SEARCH ================= */
 
 searchInput.addEventListener(
     "input",
     function(){
 
-        const query =
-            this.value
-                .trim()
-                .toLowerCase();
+        const query=this.value
+            .trim()
+            .toLowerCase();
 
-        const filtered =
-            services.filter(
-                service =>
-                    service.name
-                        .toLowerCase()
-                        .includes(query)
-            );
+        const filtered=services.filter(
+            service=>
+                service.name
+                    .toLowerCase()
+                    .includes(query)
+        );
 
         renderServices(filtered);
-
     }
 );
 
-
-/* =========================
-   ESCAPE HTML
-========================= */
+/* ================= ESCAPE ================= */
 
 function escapeHTML(text){
 
-    const div =
-        document.createElement("div");
+    const div=document.createElement("div");
 
     div.textContent=text;
 
     return div.innerHTML;
 }
 
-
-/* =========================
-   LOAD DIRECT SERVICE
-========================= */
+/* ================= DIRECT QR ================= */
 
 function loadServiceFromURL(){
 
-    const hash =
-        location.hash;
+    const hash=location.hash;
 
     if(hash.startsWith("#service-")){
 
-        const id =
-            parseInt(
-                hash.replace(
-                    "#service-",
-                    ""
-                )
-            );
+        const id=parseInt(
+            hash.replace("#service-","")
+        );
 
         if(!isNaN(id)){
 
@@ -1335,8 +1320,7 @@ function loadServiceFromURL(){
     renderServices(services);
 }
 
-
-/* START */
+/* ================= START ================= */
 
 loadServiceFromURL();
 
