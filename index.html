@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 <title>الوصول الفوري للمعلومة الخدمية | حي المعادي</title>
 
@@ -14,14 +14,20 @@
 }
 
 :root{
-    --navy:#0b2740;
-    --blue:#15577f;
-    --blue-light:#eaf3f8;
-    --gold:#c9a24d;
-    --bg:#f4f7f9;
+    --navy:#102a43;
+    --navy2:#174a70;
+    --blue:#1d6b9d;
+    --gold:#c9a24a;
+    --gold2:#e4c979;
+    --bg:#f3f6f8;
+    --white:#ffffff;
     --text:#17212b;
-    --muted:#6f7b84;
+    --muted:#687783;
     --border:#e1e7eb;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -44,66 +50,105 @@ body{
 ========================= */
 
 .header{
-    background:linear-gradient(145deg,#081f34,#15577f 72%,#1d709e);
-    color:#fff;
-    padding:24px 18px 32px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,255,255,.10),transparent 28%),
+        linear-gradient(145deg,#0c2439,#174a70);
+    color:white;
+    padding:28px 20px 34px;
     text-align:center;
-    border-radius:0 0 30px 30px;
+    border-radius:0 0 32px 32px;
 }
 
-.official-brand{
+.header:after{
+    content:"";
+    position:absolute;
+    left:-60px;
+    bottom:-90px;
+    width:230px;
+    height:230px;
+    border:1px solid rgba(228,201,121,.22);
+    border-radius:50%;
+}
+
+.brand{
+    position:relative;
+    z-index:2;
+}
+
+.brand-mark{
+    width:72px;
+    height:72px;
+    margin:0 auto 15px;
+    border:2px solid rgba(228,201,121,.75);
+    border-radius:20px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:12px;
-    margin-bottom:17px;
+    background:rgba(255,255,255,.09);
+    box-shadow:0 10px 25px rgba(0,0,0,.16);
 }
 
-.logo-box{
-    width:64px;
-    height:64px;
-    background:#fff;
-    border-radius:17px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--navy);
-    font-size:30px;
-    box-shadow:0 7px 20px rgba(0,0,0,.18);
+.brand-mark span{
+    font-size:31px;
 }
 
-.brand-text{
-    text-align:right;
-}
-
-.brand-text .gov{
-    font-size:13px;
-    opacity:.85;
-    margin-bottom:3px;
-}
-
-.brand-text .district{
-    font-size:20px;
-    font-weight:800;
-}
-
-.system-name{
+.district{
     font-size:14px;
+    letter-spacing:.2px;
     opacity:.82;
     margin-bottom:6px;
 }
 
-.main-title{
-    font-size:25px;
+.leader-label{
+    font-size:12px;
+    opacity:.68;
+    margin-bottom:5px;
+}
+
+.leader{
+    font-size:18px;
     font-weight:800;
-    line-height:1.5;
+    line-height:1.7;
+}
+
+.position{
+    font-size:13px;
+    color:var(--gold2);
+    font-weight:bold;
+    margin-top:1px;
+}
+
+.divider{
+    width:80px;
+    height:1px;
+    margin:18px auto;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold2),
+        transparent
+    );
+}
+
+.system-name{
+    font-size:14px;
+    color:#d9e8f2;
+    margin-bottom:7px;
+}
+
+.main-title{
+    font-size:26px;
+    font-weight:900;
+    line-height:1.45;
 }
 
 .subtitle{
+    margin-top:8px;
     font-size:14px;
     line-height:1.8;
-    opacity:.9;
-    margin-top:6px;
+    color:#dce9f1;
 }
 
 /* =========================
@@ -111,62 +156,65 @@ body{
 ========================= */
 
 .content{
-    padding:22px 15px 35px;
+    padding:23px 16px 30px;
 }
 
-/* البحث */
-
-.search-box{
-    position:relative;
+.intro{
+    text-align:center;
     margin-bottom:20px;
 }
 
-.search-box input{
-    width:100%;
-    height:56px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    background:#fff;
-    padding:0 48px 0 16px;
-    font-family:inherit;
-    font-size:15px;
-    outline:none;
-    box-shadow:0 5px 18px rgba(0,0,0,.05);
+.intro-title{
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:6px;
 }
 
-.search-box input:focus{
-    border-color:#82a9bf;
+.intro-text{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    position:sticky;
+    top:8px;
+    z-index:20;
+    margin-bottom:18px;
+}
+
+.search-inner{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:12px 14px;
+    box-shadow:0 7px 24px rgba(16,42,67,.09);
 }
 
 .search-icon{
-    position:absolute;
-    right:17px;
-    top:14px;
-    font-size:23px;
-    color:var(--blue);
-}
-
-/* العنوان */
-
-.section-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:13px;
-}
-
-.section-title{
     font-size:20px;
-    font-weight:800;
+    color:var(--blue);
 }
 
-.service-count{
-    background:var(--blue-light);
-    color:var(--blue);
-    padding:7px 11px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
+.search-input{
+    width:100%;
+    border:0;
+    outline:0;
+    font-family:inherit;
+    font-size:14px;
+    color:var(--text);
+    background:transparent;
+}
+
+.search-input::placeholder{
+    color:#99a4ab;
 }
 
 /* =========================
@@ -176,23 +224,22 @@ body{
 .services{
     display:flex;
     flex-direction:column;
-    gap:11px;
+    gap:12px;
 }
 
 .service-card{
     width:100%;
     border:1px solid var(--border);
+    border-radius:19px;
     background:#fff;
-    border-radius:18px;
     padding:15px;
     display:flex;
     align-items:center;
     gap:13px;
     cursor:pointer;
     text-align:right;
-    font-family:inherit;
-    box-shadow:0 4px 15px rgba(0,0,0,.045);
-    transition:.15s ease;
+    transition:.16s ease;
+    box-shadow:0 5px 17px rgba(0,0,0,.045);
 }
 
 .service-card:active{
@@ -200,17 +247,17 @@ body{
 }
 
 .service-number{
-    flex:0 0 45px;
-    width:45px;
-    height:45px;
-    border-radius:14px;
-    background:var(--blue-light);
-    color:var(--blue);
+    flex:0 0 42px;
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:#edf4f8;
+    color:var(--navy2);
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:14px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .service-info{
@@ -220,122 +267,141 @@ body{
 
 .service-name{
     font-size:15px;
-    font-weight:800;
+    font-weight:900;
     line-height:1.65;
 }
 
-.service-hint{
-    color:var(--muted);
+.service-small{
+    color:#8a969e;
     font-size:11px;
     margin-top:3px;
 }
 
 .arrow{
-    color:var(--blue);
+    color:var(--navy2);
     font-size:21px;
-    font-weight:bold;
-}
-
-/* لا توجد نتائج */
-
-.no-results{
-    display:none;
-    text-align:center;
-    padding:35px 15px;
-    color:var(--muted);
-    font-size:14px;
 }
 
 /* =========================
-   SERVICE DETAIL
+   DETAIL
 ========================= */
 
 .detail{
     display:none;
 }
 
-.back-button{
+.detail.active{
+    display:block;
+}
+
+.back{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
     border:0;
-    background:var(--blue-light);
-    color:var(--blue);
-    padding:10px 15px;
+    background:#edf4f8;
+    color:var(--navy2);
+    padding:10px 14px;
     border-radius:13px;
     font-family:inherit;
-    font-weight:800;
+    font-size:13px;
+    font-weight:bold;
     cursor:pointer;
     margin-bottom:15px;
 }
 
-.detail-header{
-    background:linear-gradient(145deg,#f8fafb,#edf5f9);
+.detail-card{
     border:1px solid var(--border);
-    border-radius:20px;
-    padding:19px;
-    margin-bottom:18px;
+    border-radius:23px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.detail-head{
+    background:linear-gradient(145deg,#102a43,#174a70);
+    color:#fff;
+    padding:22px 19px;
 }
 
 .detail-number{
+    color:var(--gold2);
     font-size:12px;
-    color:var(--blue);
-    font-weight:800;
-    margin-bottom:7px;
+    font-weight:bold;
+    margin-bottom:6px;
 }
 
 .detail-title{
     font-size:21px;
-    line-height:1.6;
-    font-weight:800;
-}
-
-.documents-title{
-    font-size:19px;
-    font-weight:800;
-    margin:0 2px 12px;
-}
-
-.documents{
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.documents li{
-    position:relative;
-    border:1px solid var(--border);
-    border-radius:15px;
-    padding:13px 45px 13px 13px;
-    font-size:14px;
-    line-height:1.8;
-    background:#fff;
-    box-shadow:0 3px 12px rgba(0,0,0,.035);
-}
-
-.documents li::before{
-    content:"✓";
-    position:absolute;
-    right:13px;
-    top:13px;
-    width:24px;
-    height:24px;
-    border-radius:50%;
-    background:var(--blue-light);
-    color:var(--blue);
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    line-height:1.55;
     font-weight:900;
 }
 
-.note{
-    margin-top:18px;
-    padding:14px;
-    background:#fbf6e9;
-    border-right:4px solid var(--gold);
-    border-radius:14px;
-    color:#5e4b22;
+.documents{
+    padding:20px 17px;
+}
+
+.documents-title{
+    font-size:16px;
+    font-weight:900;
+    color:var(--navy);
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.document{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:12px 0;
+    border-bottom:1px solid #edf0f2;
+}
+
+.document:last-child{
+    border-bottom:0;
+}
+
+.doc-num{
+    flex:0 0 28px;
+    width:28px;
+    height:28px;
+    border-radius:9px;
+    background:#f5f0df;
+    color:#866a27;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-size:12px;
+    font-weight:900;
+}
+
+.doc-text{
+    flex:1;
+    font-size:14px;
+    line-height:1.85;
+    color:#34424c;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info-box{
+    margin-top:18px;
+    padding:16px;
+    border-radius:17px;
+    background:#faf6e9;
+    border-right:4px solid var(--gold);
+    color:#554719;
+    font-size:13px;
     line-height:1.8;
+}
+
+.info-title{
+    font-weight:900;
+    margin-bottom:4px;
 }
 
 /* =========================
@@ -343,14 +409,46 @@ body{
 ========================= */
 
 .footer{
+    margin-top:20px;
+    padding:22px 15px 28px;
+    border-top:1px solid #edf0f2;
     text-align:center;
-    color:#8a949d;
-    font-size:11px;
-    line-height:1.8;
-    padding:10px 20px 27px;
 }
 
-/* الكمبيوتر */
+.footer-unit{
+    font-size:14px;
+    font-weight:900;
+    color:var(--navy);
+    margin-bottom:4px;
+}
+
+.footer-center{
+    font-size:11px;
+    color:#7d8991;
+    margin-bottom:15px;
+}
+
+.footer-credit{
+    font-size:12px;
+    color:#69767e;
+    line-height:1.8;
+}
+
+.footer-credit strong{
+    color:var(--navy2);
+}
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-results{
+    display:none;
+    text-align:center;
+    padding:30px 15px;
+    color:#7b878f;
+    font-size:14px;
+}
 
 @media(min-width:700px){
 
@@ -371,159 +469,140 @@ body{
 
 <main class="app">
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="header">
 
-    <div class="official-brand">
+    <div class="brand">
 
-        <!-- مكان شعار الجهة -->
-        <div class="logo-box">
-            🏛️
+        <div class="brand-mark">
+            <span>🏛️</span>
         </div>
 
-        <div class="brand-text">
-
-            <div class="gov">
-                محافظة القاهرة
-            </div>
-
-            <div class="district">
-                حي المعادي
-            </div>
-
+        <div class="district">
+            حي المعادي
         </div>
 
-    </div>
+        <div class="leader-label">
+            تحت قيادة
+        </div>
 
-    <div class="system-name">
-        الوصول الفوري للمعلومة الخدمية
-    </div>
+        <div class="leader">
+            السيد الدكتور/ محمد عثمان الإمام
+        </div>
 
-    <div class="main-title">
-        المعلومة الخدمية بين يديك
-    </div>
+        <div class="position">
+            وكيل الوزارة – رئيس حي المعادي
+        </div>
 
-    <div class="subtitle">
-        تعرف على المستندات المطلوبة قبل التوجه لتقديم طلبك
+        <div class="divider"></div>
+
+        <div class="system-name">
+            منظومة الوصول الفوري للمعلومة الخدمية
+        </div>
+
+        <h1 class="main-title">
+            المعلومة الخدمية بين يديك
+        </h1>
+
+        <div class="subtitle">
+            دليل المستندات المطلوبة للخدمات
+        </div>
+
     </div>
 
 </header>
 
 
-<!-- =========================
-     CONTENT
-========================= -->
-
 <section class="content">
 
+    <div id="listView">
 
-<!-- الصفحة الرئيسية -->
+        <div class="intro">
 
-<div id="home">
+            <div class="intro-title">
+                الخدمات المتاحة
+            </div>
 
-    <div class="search-box">
+            <div class="intro-text">
+                اختر الخدمة المطلوبة لمعرفة المستندات الواجب تقديمها
+            </div>
 
-        <span class="search-icon">
-            🔎
-        </span>
-
-        <input
-            type="search"
-            id="searchInput"
-            placeholder="ابحث عن الخدمة..."
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <div class="section-head">
-
-        <div class="section-title">
-            الخدمات المتاحة
         </div>
 
-        <div class="service-count" id="serviceCount">
-            41 خدمة
+
+        <div class="search-box">
+
+            <div class="search-inner">
+
+                <div class="search-icon">⌕</div>
+
+                <input
+                    id="searchInput"
+                    class="search-input"
+                    type="search"
+                    placeholder="ابحث باسم الخدمة..."
+                    autocomplete="off"
+                >
+
+            </div>
+
         </div>
 
-    </div>
 
+        <div id="services" class="services"></div>
 
-    <div class="services" id="servicesList">
-    </div>
-
-
-    <div class="no-results" id="noResults">
-        لا توجد خدمة مطابقة لبحثك.
-    </div>
-
-</div>
-
-
-<!-- صفحة تفاصيل الخدمة -->
-
-<div class="detail" id="detail">
-
-    <button class="back-button" onclick="goHome()">
-        → العودة إلى الخدمات
-    </button>
-
-
-    <div class="detail-header">
-
-        <div class="detail-number" id="detailNumber">
+        <div id="noResults" class="no-results">
+            لا توجد خدمة مطابقة لبحثك.
         </div>
 
-        <div class="detail-title" id="detailTitle">
+
+        <div class="info-box">
+
+            <div class="info-title">
+                💡 معلومة خدمية
+            </div>
+
+            اعرف المستندات المطلوبة قبل التوجه لتقديم الطلب.
+
         </div>
 
     </div>
 
 
-    <div class="documents-title">
-        المستندات المطلوبة
+    <div id="detailView" class="detail">
+
+        <button class="back" onclick="goBack()">
+            → العودة إلى الخدمات
+        </button>
+
+        <div id="detailContent"></div>
+
     </div>
 
 
-    <ul class="documents" id="documentsList">
-    </ul>
+    <footer class="footer">
 
+        <div class="footer-unit">
+            وحدة الابتكار وتطوير الحلول
+        </div>
 
-    <div class="note">
-        يرجى مراجعة الجهة المختصة عند وجود أي تحديث على متطلبات الخدمة.
-    </div>
+        <div class="footer-center">
+            مركز المعلومات ودعم اتخاذ القرار – حي المعادي
+        </div>
 
-</div>
+        <div class="footer-credit">
+            فكرة وتصميم وتنفيذ
+            <br>
+            <strong>م/ أحمد عبد الحي</strong>
+        </div>
+
+    </footer>
 
 </section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-    محافظة القاهرة — حي المعادي
-
-    <br>
-
-    الوصول الفوري للمعلومة الخدمية
-
-</footer>
 
 </main>
 
 
 <script>
-
-/* =====================================================
-   بيانات الخدمات
-===================================================== */
 
 const services = [
 
@@ -607,7 +686,7 @@ name:"رخصة هدم للقانون 144 لسنة 2006",
 docs:[
 "طلب رسمي لهدم العقار موضحاً به الأسباب.",
 "سند الملكية المسجل للعقار.",
-"شهادة من الجهاز القومي للتنسيق الحضاري للتأكد من عدم خضوع العقار لقانون حماية الآثار أو التراث المعماري.",
+"شهادة من الجهاز القومي للتنسيق الحضاري (للتأكد من عدم خضوع العقار لقانون حماية الآثار أو التراث المعماري).",
 "تقرير إستشاري هندسي معتمد يوضح الحالة الإنشائية وخطورة العقار.",
 "صورة بطاقة الرقم القومي للمالك."
 ]
@@ -1005,34 +1084,48 @@ docs:[
 ];
 
 
-/* =====================================================
-   عرض الخدمات
-===================================================== */
+/* =========================
+   RENDER SERVICES
+========================= */
 
-const servicesList =
-document.getElementById("servicesList");
-
-const serviceCount =
-document.getElementById("serviceCount");
-
-const noResults =
-document.getElementById("noResults");
+const servicesContainer =
+    document.getElementById("services");
 
 const searchInput =
-document.getElementById("searchInput");
+    document.getElementById("searchInput");
+
+const noResults =
+    document.getElementById("noResults");
+
+const listView =
+    document.getElementById("listView");
+
+const detailView =
+    document.getElementById("detailView");
+
+const detailContent =
+    document.getElementById("detailContent");
 
 
 function renderServices(list){
 
-    servicesList.innerHTML="";
+    servicesContainer.innerHTML="";
+
+    noResults.style.display =
+        list.length ? "none" : "block";
 
     list.forEach(service=>{
 
-        const button=document.createElement("button");
+        const card =
+            document.createElement("div");
 
-        button.className="service-card";
+        card.className="service-card";
 
-        button.innerHTML=`
+        card.onclick=()=>{
+            openService(service.id);
+        };
+
+        card.innerHTML=`
 
             <div class="service-number">
                 ${service.id}
@@ -1044,8 +1137,8 @@ function renderServices(list){
                     ${escapeHTML(service.name)}
                 </div>
 
-                <div class="service-hint">
-                    ${service.docs.length} مستندات مطلوبة
+                <div class="service-small">
+                    المستندات المطلوبة
                 </div>
 
             </div>
@@ -1055,89 +1148,107 @@ function renderServices(list){
             </div>
         `;
 
-        button.onclick=()=>{
-            openService(service.id);
-        };
-
-        servicesList.appendChild(button);
+        servicesContainer.appendChild(card);
 
     });
 
-
-    serviceCount.textContent =
-        list.length + " خدمة";
-
-
-    noResults.style.display =
-        list.length ? "none" : "block";
 }
 
 
-/* =====================================================
-   فتح الخدمة
-===================================================== */
+/* =========================
+   OPEN SERVICE
+========================= */
 
 function openService(id){
 
     const service =
-        services.find(item=>item.id===id);
+        services.find(
+            item=>item.id===id
+        );
 
     if(!service) return;
 
+    let docsHTML="";
 
-    document.getElementById("home").style.display="none";
+    service.docs.forEach(
+        (doc,index)=>{
 
-    document.getElementById("detail").style.display="block";
+            docsHTML += `
 
+                <div class="document">
 
-    document.getElementById("detailNumber").textContent =
-        "الخدمة رقم " + service.id;
+                    <div class="doc-num">
+                        ${index+1}
+                    </div>
 
+                    <div class="doc-text">
+                        ${escapeHTML(doc)}
+                    </div>
 
-    document.getElementById("detailTitle").textContent =
-        service.name;
+                </div>
 
-
-    const documentsList =
-        document.getElementById("documentsList");
-
-    documentsList.innerHTML="";
-
-
-    service.docs.forEach(doc=>{
-
-        const li=document.createElement("li");
-
-        li.textContent=doc;
-
-        documentsList.appendChild(li);
-
-    });
-
-
-    history.replaceState(
-        null,
-        "",
-        "#service-" + service.id
+            `;
+        }
     );
 
+    detailContent.innerHTML=`
+
+        <div class="detail-card">
+
+            <div class="detail-head">
+
+                <div class="detail-number">
+                    الخدمة رقم ${service.id}
+                </div>
+
+                <div class="detail-title">
+                    ${escapeHTML(service.name)}
+                </div>
+
+            </div>
+
+            <div class="documents">
+
+                <div class="documents-title">
+                    📋 المستندات المطلوبة
+                </div>
+
+                ${docsHTML}
+
+            </div>
+
+        </div>
+
+    `;
+
+    listView.style.display="none";
+
+    detailView.classList.add("active");
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
+    history.replaceState(
+        null,
+        "",
+        location.pathname +
+        "#service-" +
+        service.id
+    );
 }
 
 
-/* =====================================================
-   العودة
-===================================================== */
+/* =========================
+   BACK
+========================= */
 
-function goHome(){
+function goBack(){
 
-    document.getElementById("detail").style.display="none";
+    detailView.classList.remove("active");
 
-    document.getElementById("home").style.display="block";
+    listView.style.display="block";
 
     history.replaceState(
         null,
@@ -1152,36 +1263,41 @@ function goHome(){
 }
 
 
-/* =====================================================
-   البحث
-===================================================== */
+/* =========================
+   SEARCH
+========================= */
 
 searchInput.addEventListener(
     "input",
     function(){
 
         const query =
-            this.value.trim().toLowerCase();
+            this.value
+                .trim()
+                .toLowerCase();
 
         const filtered =
-            services.filter(service=>
-                service.name
-                .toLowerCase()
-                .includes(query)
+            services.filter(
+                service =>
+                    service.name
+                        .toLowerCase()
+                        .includes(query)
             );
 
         renderServices(filtered);
+
     }
 );
 
 
-/* =====================================================
-   حماية النص
-===================================================== */
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHTML(text){
 
-    const div=document.createElement("div");
+    const div =
+        document.createElement("div");
 
     div.textContent=text;
 
@@ -1189,9 +1305,9 @@ function escapeHTML(text){
 }
 
 
-/* =====================================================
-   فتح خدمة مباشرة عن طريق الرابط
-===================================================== */
+/* =========================
+   LOAD DIRECT SERVICE
+========================= */
 
 function loadServiceFromURL(){
 
@@ -1202,7 +1318,10 @@ function loadServiceFromURL(){
 
         const id =
             parseInt(
-                hash.replace("#service-","")
+                hash.replace(
+                    "#service-",
+                    ""
+                )
             );
 
         if(!isNaN(id)){
@@ -1217,7 +1336,7 @@ function loadServiceFromURL(){
 }
 
 
-/* تشغيل الموقع */
+/* START */
 
 loadServiceFromURL();
 
