@@ -470,6 +470,67 @@ body{
         box-shadow:0 15px 50px rgba(0,0,0,.12);
     }
 }
+
+/* ================= FEATURED RECONCILIATION ================= */
+
+.featured-reconciliation{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:0 0 18px;
+    padding:17px 15px;
+    border:1px solid rgba(201,162,74,.55);
+    border-radius:21px;
+    background:
+        radial-gradient(circle at 90% 20%,rgba(228,201,121,.14),transparent 32%),
+        linear-gradient(145deg,#102a43,#174a70);
+    color:#fff;
+    text-decoration:none;
+    box-shadow:0 9px 26px rgba(16,42,67,.16);
+    transition:.16s ease;
+}
+
+.featured-reconciliation:active{
+    transform:scale(.985);
+}
+
+.featured-icon{
+    flex:0 0 52px;
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(228,201,121,.55);
+    font-size:27px;
+}
+
+.featured-content{
+    flex:1;
+    min-width:0;
+}
+
+.featured-title{
+    font-size:17px;
+    font-weight:900;
+    line-height:1.55;
+}
+
+.featured-subtitle{
+    margin-top:3px;
+    color:#e4c979;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.featured-action{
+    margin-top:7px;
+    font-size:11px;
+    color:#dce9f1;
+    font-weight:bold;
+}
 </style>
 </head>
 
@@ -558,6 +619,27 @@ autocomplete="off">
 </div>
 
 </div>
+<a href="reconciliation.html" class="featured-reconciliation">
+
+    <div class="featured-icon">
+        🏗️
+    </div>
+
+    <div class="featured-content">
+        <div class="featured-title">
+            التصالح على مخالفات البناء
+        </div>
+
+        <div class="featured-subtitle">
+            طبقاً للقانون رقم 187 لسنة 2023
+        </div>
+
+        <div class="featured-action">
+            عرض المستندات المطلوبة ←
+        </div>
+    </div>
+
+</a>
 
 <div id="services" class="services"></div>
 
