@@ -1257,7 +1257,13 @@ function openService(id){
     );
 
     if(!service) return;
-
+    // Google Analytics — تسجيل استخدام الخدمة
+    if(typeof gtag === "function"){
+        gtag("event","view_service",{
+            service_id: service.id,
+            service_name: service.name
+        });
+    }
     let docsHTML="";
 
     service.docs.forEach((doc,index)=>{
