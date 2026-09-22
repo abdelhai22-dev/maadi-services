@@ -1088,7 +1088,7 @@ function previousStep(){
 }
 
 
-function submitForm(){
+async function submitForm(){
 
     if(!validateStep()){
 
@@ -1096,16 +1096,51 @@ function submitForm(){
         return;
     }
 
-    /*
-      لاحقًا يمكن ربط الإرسال بقاعدة بيانات
-      أو Google Sheets أو نظام استقبال بيانات.
-    */
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw2HLzIthMk_UpuKOgwhvn55Fr8NxLQxbezG-RyFd39OvLBZkaj0l36NCXr3xWpDyigOQ/exec";
 
-    document.querySelector(".card-top").style.display = "none";
-    document.querySelector(".actions").style.display = "none";
-    document.querySelector(".signature").style.display = "none";
+    const region =
+        document.querySelector('input[name="region"]:checked')?.value || "";
 
-    document.getElementById("success").style.display = "block";
+    const place =
+        document.getElementById("place").value.trim();
+
+    const priority =
+        document.querySelector('input[name="priority"]:checked')?.value || "";
+
+    const satisfaction =
+        document.querySelector('input[name="satisfaction"]:checked')?.value || "";
+
+    const data = {
+        region: region,
+        place: place,
+        priority: priority,
+        satisfaction: satisfaction
+    };
+
+    try {
+
+        await fetch(WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data)
+        });
+
+        document.querySelector(".card-top").style.display = "none";
+        document.querySelector(".actions").style.display = "none";
+        document.querySelector(".signature").style.display = "none";
+
+        document.getElementById("success").style.display = "block";
+
+    } catch(error) {
+
+        document.getElementById("error").textContent =
+            "حدث خطأ أثناء إرسال الرأي. حاول مرة أخرى.";
+
+        document.getElementById("error").style.display = "block";
+    }
 }
 
 showStep(currentStep);
