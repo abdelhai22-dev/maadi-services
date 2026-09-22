@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أنت ترسم المعادي | رأيك يهمنا</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --blue:#1877F2;
+    --blue-dark:#166FE5;
+    --blue-soft:#EAF2FF;
+    --green:#173F35;
+    --gold:#B9954B;
+    --ink:#172522;
+    --muted:#68736F;
+    --line:#E1E7ED;
+    --paper:#F5F7FA;
+    --white:#FFFFFF;
+    --soft:#F0F4F8;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(24,119,242,.08), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(23,63,53,.06), transparent 30%),
+        var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.top{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:22px 18px 8px;
+}
+
+.brand-logos{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    margin:0 auto 18px;
+    padding:0 12px;
+}
+
+.brand-logo{
+    width:92px;
+    height:92px;
+    object-fit:contain;
+    display:block;
+}
+
+.brand-logo.district{
+    width:108px;
+    height:108px;
+}
+
+.official{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.official-item{
+    text-align:center;
+    padding:10px 8px;
+    border-bottom:1px solid var(--line);
+}
+
+.official-label{
+    font-size:12px;
+    color:var(--blue);
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.official-name{
+    font-size:14px;
+    font-weight:700;
+    color:var(--green);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    width:100%;
+    max-width:850px;
+    margin:0 auto;
+    padding:38px 20px 25px;
+    text-align:center;
+}
+
+.kicker{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:7px 14px;
+    border-radius:30px;
+    background:var(--blue-soft);
+    color:var(--blue);
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+h1{
+    margin:0;
+    color:var(--green);
+    font-size:clamp(34px,7vw,62px);
+    line-height:1.05;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:18px auto 0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.9;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.card{
+    width:calc(100% - 28px);
+    max-width:650px;
+    margin:10px auto 35px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:22px;
+    box-shadow:
+        0 12px 35px rgba(20,40,60,.08);
+    overflow:hidden;
+}
+
+.card-top{
+    padding:20px 20px 10px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.step{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#E9EDF2;
+    color:#7B858D;
+    font-size:13px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.step.active{
+    background:var(--blue);
+    color:white;
+    box-shadow:0 4px 12px rgba(24,119,242,.25);
+}
+
+.step.done{
+    background:var(--green);
+    color:white;
+}
+
+.step-line{
+    height:2px;
+    width:28px;
+    background:#E0E5EA;
+}
+
+/* =========================
+   QUESTION
+========================= */
+
+.question{
+    display:none;
+    animation:fade .25s ease;
+}
+
+.question.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(6px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.q-number{
+    color:var(--blue);
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+.q-title{
+    font-size:23px;
+    font-weight:800;
+    color:var(--green);
+    margin-bottom:18px;
+    line-height:1.5;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.options{
+    display:grid;
+    gap:10px;
+}
+
+.option{
+    position:relative;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.option label{
+    display:block;
+    padding:15px 16px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:#fff;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    color:#26332F;
+    transition:.2s;
+}
+
+.option label:hover{
+    border-color:#B9D3F8;
+    background:#F7FAFF;
+}
+
+.option input:checked + label{
+    border-color:var(--blue);
+    background:var(--blue-soft);
+    color:#125CC0;
+    box-shadow:
+        inset -4px 0 0 var(--blue);
+}
+
+/* =========================
+   TEXT INPUT
+========================= */
+
+.text-input{
+    width:100%;
+    height:54px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    outline:none;
+    padding:0 16px;
+    font-family:inherit;
+    font-size:16px;
+    color:var(--ink);
+    background:#fff;
+    transition:.2s;
+}
+
+.text-input:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 4px rgba(24,119,242,.10);
+}
+
+.text-input::placeholder{
+    color:#9AA4AC;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error{
+    display:none;
+    margin-top:15px;
+    padding:11px 13px;
+    border-radius:10px;
+    background:#FFF4F4;
+    color:#B42318;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions{
+    display:flex;
+    gap:10px;
+    padding:20px;
+    border-top:1px solid var(--line);
+    margin-top:24px;
+}
+
+button{
+    height:50px;
+    border:none;
+    border-radius:12px;
+    padding:0 22px;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.next{
+    flex:1;
+    background:var(--blue);
+    color:#fff;
+    box-shadow:0 5px 14px rgba(24,119,242,.20);
+}
+
+.next:hover{
+    background:var(--blue-dark);
+    transform:translateY(-1px);
+}
+
+.back{
+    background:#EEF1F4;
+    color:#56616A;
+    min-width:100px;
+}
+
+.back:hover{
+    background:#E3E7EB;
+}
+
+.submit{
+    flex:1;
+    background:var(--green);
+    color:#fff;
+    box-shadow:0 5px 14px rgba(23,63,53,.18);
+}
+
+.submit:hover{
+    transform:translateY(-1px);
+}
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature{
+    text-align:center;
+    padding:0 20px 20px;
+}
+
+.signature-name{
+    color:var(--green);
+    font-size:12px;
+    font-weight:800;
+}
+
+.signature-role{
+    color:#929B98;
+    font-size:10px;
+    margin-top:3px;
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success{
+    display:none;
+    text-align:center;
+    padding:50px 25px 55px;
+}
+
+.success-icon{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:var(--blue-soft);
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:30px;
+    font-weight:800;
+}
+
+.success h2{
+    color:var(--green);
+    margin:0 0 12px;
+    font-size:28px;
+}
+
+.success p{
+    color:var(--muted);
+    line-height:1.9;
+    margin:0 auto;
+    max-width:430px;
+    font-size:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:0 15px 28px;
+    color:#89938F;
+    font-size:11px;
+}
+
+footer span{
+    color:var(--gold);
+    padding:0 4px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .top{
+        padding:14px 12px 4px;
+    }
+
+    .brand-logos{
+        gap:18px;
+        margin-bottom:12px;
+    }
+
+    .brand-logo{
+        width:68px;
+        height:68px;
+    }
+
+    .brand-logo.district{
+        width:78px;
+        height:78px;
+    }
+
+    .official{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .official-item{
+        padding:7px 5px;
+    }
+
+    .official-item:not(:last-child){
+        border-bottom:none;
+    }
+
+    .official-label{
+        font-size:10px;
+    }
+
+    .official-name{
+        font-size:12px;
+    }
+
+    .hero{
+        padding:30px 18px 20px;
+    }
+
+    h1{
+        font-size:39px;
+    }
+
+    .hero p{
+        font-size:14px;
+        line-height:1.8;
+        margin-top:14px;
+    }
+
+    .card{
+        width:calc(100% - 20px);
+        border-radius:18px;
+        margin-top:5px;
+    }
+
+    .card-top{
+        padding:17px 15px 8px;
+    }
+
+    .progress{
+        gap:6px;
+        margin-bottom:18px;
+    }
+
+    .step{
+        width:29px;
+        height:29px;
+        font-size:12px;
+    }
+
+    .step-line{
+        width:20px;
+    }
+
+    .q-title{
+        font-size:20px;
+        margin-bottom:15px;
+    }
+
+    .option label{
+        padding:14px 13px;
+        font-size:14px;
+    }
+
+    .actions{
+        padding:15px;
+        margin-top:20px;
+    }
+
+    button{
+        height:48px;
+        font-size:14px;
+    }
+
+    .back{
+        min-width:85px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OFFICIAL HEADER
+========================= -->
+
+<header class="top">
+
+    <div class="brand-logos" aria-label="محافظة القاهرة وحي المعادي">
+        <img
+            class="brand-logo governorate"
+            src="governorate.png"
+            alt="محافظة القاهرة"
+        >
+        <img
+            class="brand-logo district"
+            src="district.png"
+            alt="حي المعادي"
+        >
+    </div>
+
+    <div class="official">
+
+        <div class="official-item">
+            <div class="official-label">محافظ القاهرة</div>
+            <div class="official-name">
+                السيد الدكتور/ إبراهيم صابر
+            </div>
+        </div>
+
+        <div class="official-item">
+            <div class="official-label">
+                نائب المحافظ للمنطقة الجنوبية
+            </div>
+            <div class="official-name">
+                السيد الأستاذ/ أشرف منصور
+            </div>
+        </div>
+
+        <div class="official-item">
+            <div class="official-label">
+                رئيس حي المعادي
+            </div>
+            <div class="official-name">
+                السيد الأستاذ الدكتور/ محمد عثمان الإمام
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="kicker">
+        رأيك يهمنا
+    </div>
+
+    <h1>
+        أنت ترسم المعادي
+    </h1>
+
+    <p>
+        رأيك يساعدنا على فهم أولويات التطوير والخدمات
+        التي تهم المواطنين في مناطق المعادي.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     FORM
+========================= -->
+
+<main class="card">
+
+    <div class="card-top">
+
+        <!-- PROGRESS -->
+
+        <div class="progress">
+
+            <div class="step active" id="step1">1</div>
+
+            <div class="step-line"></div>
+
+            <div class="step" id="step2">2</div>
+
+            <div class="step-line"></div>
+
+            <div class="step" id="step3">3</div>
+
+            <div class="step-line"></div>
+
+            <div class="step" id="step4">4</div>
+
+        </div>
+
+
+        <!-- QUESTION 1 -->
+
+        <div class="question active" id="q1">
+
+            <div class="q-number">السؤال 1 من 4</div>
+
+            <div class="q-title">
+                في أي منطقة؟
+            </div>
+
+            <div class="options">
+
+                <div class="option">
+                    <input type="radio" name="region" id="r1" value="المعادي القديمة">
+                    <label for="r1">المعادي القديمة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r2" value="سرايات المعادي">
+                    <label for="r2">سرايات المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r3" value="دجلة">
+                    <label for="r3">دجلة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r4" value="المعادي الجديدة">
+                    <label for="r4">المعادي الجديدة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r5" value="زهراء المعادي">
+                    <label for="r5">زهراء المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r6" value="حدائق المعادي">
+                    <label for="r6">حدائق المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r7" value="ثكنات المعادي">
+                    <label for="r7">ثكنات المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r8" value="عرب المعادي">
+                    <label for="r8">عرب المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r9" value="اللاسلكي">
+                    <label for="r9">اللاسلكي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r10" value="كورنيش المعادي">
+                    <label for="r10">كورنيش المعادي</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="region" id="r11" value="أخرى">
+                    <label for="r11">أخرى</label>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION 2 -->
+
+        <div class="question" id="q2">
+
+            <div class="q-number">السؤال 2 من 4</div>
+
+            <div class="q-title">
+                الشارع / المكان
+            </div>
+
+            <input
+                class="text-input"
+                id="place"
+                type="text"
+                maxlength="60"
+                placeholder="مثال: شارع 9"
+            >
+
+        </div>
+
+
+        <!-- QUESTION 3 -->
+
+        <div class="question" id="q3">
+
+            <div class="q-number">السؤال 3 من 4</div>
+
+            <div class="q-title">
+                ما الأولوية التي تحتاج إلى تحسين؟
+            </div>
+
+            <div class="options">
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p1" value="الطرق والأرصفة">
+                    <label for="p1">الطرق والأرصفة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p2" value="النظافة">
+                    <label for="p2">النظافة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p3" value="الإنارة">
+                    <label for="p3">الإنارة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p4" value="التشجير والمساحات الخضراء">
+                    <label for="p4">التشجير والمساحات الخضراء</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p5" value="الإشغالات">
+                    <label for="p5">الإشغالات</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p6" value="المرور والسيولة">
+                    <label for="p6">المرور والسيولة</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p7" value="تطوير المظهر العام">
+                    <label for="p7">تطوير المظهر العام</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p8" value="الخدمات">
+                    <label for="p8">الخدمات</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="priority" id="p9" value="أخرى">
+                    <label for="p9">أخرى</label>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION 4 -->
+
+        <div class="question" id="q4">
+
+            <div class="q-number">السؤال 4 من 4</div>
+
+            <div class="q-title">
+                ما مدى رضاك عن الوضع الحالي؟
+            </div>
+
+            <div class="options">
+
+                <div class="option">
+                    <input type="radio" name="satisfaction" id="s1" value="راضٍ جدًا">
+                    <label for="s1">راضٍ جدًا</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="satisfaction" id="s2" value="راضٍ">
+                    <label for="s2">راضٍ</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="satisfaction" id="s3" value="محايد">
+                    <label for="s3">محايد</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="satisfaction" id="s4" value="غير راضٍ">
+                    <label for="s4">غير راضٍ</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="satisfaction" id="s5" value="غير راضٍ تمامًا">
+                    <label for="s5">غير راضٍ تمامًا</label>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div class="error" id="error">
+            من فضلك أكمل الاختيار المطلوب أولًا.
+        </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="actions">
+
+        <button
+            type="button"
+            class="back"
+            id="back"
+            onclick="previousStep()"
+            style="display:none;"
+        >
+            السابق
+        </button>
+
+        <button
+            type="button"
+            class="next"
+            id="next"
+            onclick="nextStep()"
+        >
+            التالي
+        </button>
+
+        <button
+            type="button"
+            class="submit"
+            id="submit"
+            onclick="submitForm()"
+            style="display:none;"
+        >
+            إرسال الرأي
+        </button>
+
+    </div>
+
+
+    <!-- SIGNATURE -->
+
+    <div class="signature">
+
+        <div class="signature-name">
+            أحمد عبد الحي
+        </div>
+
+        <div class="signature-role">
+            وحدة الابتكار وتطوير الحلول بحي المعادي
+        </div>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div class="success" id="success">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            شكرًا لمشاركتك
+        </h2>
+
+        <p>
+            وصل رأيك. مشاركتك تساعد في تكوين صورة أوضح
+            عن أولويات التطوير في المعادي.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+    حي المعادي
+    <span>·</span>
+    رأيك يهمنا
+</footer>
+
+
+<script>
+
+let currentStep = 1;
+const totalSteps = 4;
+
+function showStep(step){
+
+    for(let i = 1; i <= totalSteps; i++){
+
+        document.getElementById("q" + i)
+            .classList.remove("active");
+
+        const stepElement =
+            document.getElementById("step" + i);
+
+        stepElement.classList.remove("active");
+        stepElement.classList.remove("done");
+    }
+
+    document.getElementById("q" + step)
+        .classList.add("active");
+
+    for(let i = 1; i <= totalSteps; i++){
+
+        const stepElement =
+            document.getElementById("step" + i);
+
+        if(i < step){
+            stepElement.classList.add("done");
+        }
+
+        if(i === step){
+            stepElement.classList.add("active");
+        }
+    }
+
+    document.getElementById("back").style.display =
+        step > 1 ? "block" : "none";
+
+    document.getElementById("next").style.display =
+        step < totalSteps ? "block" : "none";
+
+    document.getElementById("submit").style.display =
+        step === totalSteps ? "block" : "none";
+
+    document.getElementById("error").style.display = "none";
+}
+
+
+function validateStep(){
+
+    if(currentStep === 1){
+
+        return !!document.querySelector(
+            'input[name="region"]:checked'
+        );
+
+    }
+
+    if(currentStep === 2){
+
+        const place =
+            document.getElementById("place").value.trim();
+
+        return place.length > 0;
+
+    }
+
+    if(currentStep === 3){
+
+        return !!document.querySelector(
+            'input[name="priority"]:checked'
+        );
+
+    }
+
+    if(currentStep === 4){
+
+        return !!document.querySelector(
+            'input[name="satisfaction"]:checked'
+        );
+    }
+
+    return true;
+}
+
+
+function nextStep(){
+
+    if(!validateStep()){
+
+        document.getElementById("error").style.display = "block";
+        return;
+    }
+
+    if(currentStep < totalSteps){
+
+        currentStep++;
+        showStep(currentStep);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+}
+
+
+function previousStep(){
+
+    if(currentStep > 1){
+
+        currentStep--;
+        showStep(currentStep);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+}
+
+
+function submitForm(){
+
+    if(!validateStep()){
+
+        document.getElementById("error").style.display = "block";
+        return;
+    }
+
+    /*
+      لاحقًا يمكن ربط الإرسال بقاعدة بيانات
+      أو Google Sheets أو نظام استقبال بيانات.
+    */
+
+    document.querySelector(".card-top").style.display = "none";
+    document.querySelector(".actions").style.display = "none";
+    document.querySelector(".signature").style.display = "none";
+
+    document.getElementById("success").style.display = "block";
+}
+
+showStep(currentStep);
+
+</script>
+
+</body>
+</html>
